@@ -1,2 +1,2 @@
 # curriculum
-curriculum-blasko
+mi curriculum web

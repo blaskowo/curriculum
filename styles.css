@@ -1,12 +1,12 @@
 /* Base Styles */
 :root {
-    --primary-color: #481180;
-    --secondary-color:#7a7897;
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
     --accent-color: #e74c3c;
-    --text-color: #59497a;
-    --light-color: #7a7897;
-    --dark-color: #4a577a;
-    --border-color: #0d2868;
+    --text-color: #333;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --border-color: #dee2e6;
 }
 
 * {
@@ -19,7 +19,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #0d2868;
+    background-color: #f5f5f5;
 }
 
 .container {
@@ -44,7 +44,7 @@ img {
 /* Header Styles */
 header {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: white;
     padding: 40px 0;
 }
 
@@ -59,7 +59,7 @@ header {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #9b91a7;
+    border: 5px solid white;
 }
 
 .profile-content h1 {
@@ -71,17 +71,17 @@ header {
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 15px;
-    color: #7a7897;
+    color: #ddd;
 }
 
 .social-icons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .social-icons a {
-    color: #59497a
-    font-size: 2rem;
+    color: white;
+    font-size: 1.5rem;
     transition: color 0.3s;
 }
 
@@ -91,8 +91,7 @@ header {
 
 /* Navigation Styles */
 nav {
-    background-color: #0a096d;
-    ;
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -126,7 +125,7 @@ main {
 
 section {
     margin-bottom: 60px;
-    background-color: #17154e;
+    background-color: white;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
