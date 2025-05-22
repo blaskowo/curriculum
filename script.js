@@ -1,91 +1,61 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: 'smooth'
+// Initialize EmailJS with your user ID
+(function() {
+    // You'll need to replace this with your actual EmailJS user ID after signing up
+    emailjs.init("YOUR_USER_ID");
+})();
+
+// Handle form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Show loading indicator or disable submit button
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Prepare template parameters
+            const templateParams = {
+                to_email: "blasko.artist@gmail.com",
+                from_name: name,
+                from_email: email,
+                message: message
+            };
+            
+            // Send email using EmailJS
+            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Show success message
+                    alert('¡Tu mensaje ha sido enviado correctamente!');
+                    
+                    // Restore button state
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Show error message
+                    alert('No se pudo enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+                    
+                    // Restore button state
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
         });
-    });
+    }
 });
-
-// Form submission handling
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        // Here you would typically send the form data to a server
-        // For now, we'll just log it to the console and show an alert
-        console.log('Form submitted:', { name, email, message });
-        
-        // Show success message
-        alert('Thank you for your message! I will get back to you soon.');
-        
-        // Reset the form
-        contactForm.reset();
-    });
-}
-
-// Add active class to nav items on scroll
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-    
-    let currentSection = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= sectionTop - 100) {
-            currentSection = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Add animation to skill bars
-function animateSkills() {
-    const skillLevels = document.querySelectorAll('.skill-level');
-    
-    skillLevels.forEach(skill => {
-        const width = skill.style.width;
-        skill.style.width = '0';
-        
-        setTimeout(() => {
-            skill.style.transition = 'width 1s ease-in-out';
-            skill.style.width = width;
-        }, 200);
-    });
-}
-
-// Call the function when the skills section is in view
-const skillsSection = document.getElementById('skills');
-if (skillsSection) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateSkills();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    observer.observe(skillsSection);
-}
