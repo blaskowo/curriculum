@@ -1,7 +1,7 @@
 // Initialize EmailJS with your user ID
 (function() {
-    // You'll need to replace this with your actual EmailJS user ID after signing up
-    emailjs.init("YOUR_USER_ID");
+    // Initialize with your EmailJS user ID
+    emailjs.init("blasko");
 })();
 
 // Handle form submission
@@ -31,9 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: message
             };
             
-            // Send email using EmailJS
-            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            // Send email using EmailJS with your service ID and template ID
+            emailjs.send('paginaweblasko@gmail.com', 'paginaweblasko@gmail.com', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     
