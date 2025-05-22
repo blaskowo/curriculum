@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Prepare template parameters
             const templateParams = {
-                to_email: "paginaweblasko@gmail.com",
+                title: "Nuevo mensaje de contacto",
                 from_name: name,
-                reply_to: email,
+                from_email: email,
                 message: message
             };
             
