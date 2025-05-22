@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Sending email with params:", templateParams);
             
             // Send email using EmailJS with your service ID and template ID
-            emailjs.send("BlaskoWeb", "template_mgod0ul", templateParams)
+            emailjs.send("service_sjbnmn4", "template_mgod0ul", templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     
