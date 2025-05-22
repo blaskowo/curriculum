@@ -1,12 +1,12 @@
 /* Base Styles */
 :root {
-    --primary-color: #b61e88;
-    --secondary-color: #b61e88;
-    --accent-color: #e74c3c;
-    --text-color: #b61e88;
-    --light-color: #b61e88;
-    --dark-color: #66144d;
-    --border-color: #dee2e6;
+    --primary-color: #8b6b4c;
+    --secondary-color: #a67c52;
+    --accent-color: #d2691e;
+    --text-color: #5d4037;
+    --light-color: #d7ccc8;
+    --dark-color: #3e2723;
+    --border-color: #d7ccc8;
 }
 
 * {
@@ -19,7 +19,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #b61e88;
+    background-color: #f5f5dc;
 }
 
 .container {
@@ -80,7 +80,7 @@ header {
 }
 
 .social-icons a {
-    color: rgb(255, 0, 0);
+    color: #d2691e;
     font-size: 1.5rem;
     transition: color 0.3s;
 }
