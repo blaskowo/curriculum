@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Prepare template parameters
             const templateParams = {
-                to_email: "paginaweblasko@gmail.com",
+                title: "Nuevo mensaje de contacto",
                 from_name: name,
-                reply_to: email,
+                from_email: email,
                 message: message
             };
             
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Sending email with params:", templateParams);
             
             // Send email using EmailJS with your service ID and template ID
-            emailjs.send("BlaskoWeb", "template_mgod0ul", templateParams)
+            emailjs.send("service_sjbnmn4", "template_mgod0ul", templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     
